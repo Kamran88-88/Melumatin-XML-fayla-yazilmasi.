@@ -12,25 +12,28 @@ namespace ConsoleApp7
     {
         static void Main(string[] args)
         {
-            User user = new User() { Name = "Kamran", Surname = "Alisoy", Age = 45 };
 
-            var json = JsonConvert.SerializeObject(user);
-            using (StreamWriter strwriter=new StreamWriter("FILE.json"))
-            {
-                strwriter.WriteLine(json);
-            }
-
-            using (StreamReader strReader=new StreamReader("FILE.json"))
-            {
-                var obj = JsonConvert.DeserializeObject(strReader.ReadToEnd());
-            }
 
 
         }
     }
 
-    class User
+    abstract class Base
     {
+        public virtual void func()
+        {
+           
+        }
+
+        public virtual int func2(int a)
+        {
+            return a;
+        }
+    }
+
+    class User:Base
+    {
+       
         public string Name { get; set; }
         public string Surname { get; set; }
         public int Age { get; set; }
